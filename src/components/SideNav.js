@@ -20,7 +20,12 @@ function SideNav() {
     formState: { errors: movieAddError },
   } = useForm()
 
-  const [addDirector] = useMutation(add_director)
+  const [addDirector] = useMutation(add_director,
+    {
+      refetchQueries: [{query: director_list}],
+      awaitRefetchQueries: true,
+    }
+  )
   const [addMovie] = useMutation(add_movie,
     {
       refetchQueries: [{query: movie_list}],
@@ -29,7 +34,6 @@ function SideNav() {
   )
 
   const onAddDirector = (data) => {
-    console.log(data)
     addDirector({variables: {name: data.directorName, age: Number(data.directorAge)}})
   }
   const onAddMovie = (data) => {

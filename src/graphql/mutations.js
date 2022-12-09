@@ -17,3 +17,11 @@ export const add_director = gql`
         }
     }
 `
+
+export const delete_movie = gql`
+    mutation($id: ID!) {
+        deleteMovie(id: $id) {
+            id
+        }
+    }
+`
