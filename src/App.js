@@ -17,10 +17,10 @@ function App() {
       <ApolloProvider client={client}>
         <Container>
           <Row>
-            <Col xs ={12} sm={4}>
+            <Col xs ={12} sm={5}>
               <SideNav></SideNav>
             </Col>
-            <Col xs ={12} sm={4}>
+            <Col xs ={12} sm={7}>
               <MovieList></MovieList>
             </Col>
           </Row>

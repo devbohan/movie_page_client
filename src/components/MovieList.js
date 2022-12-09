@@ -1,10 +1,9 @@
 import React from "react";
 import { useQuery } from '@apollo/client'
 import {Card, CardBody, Table} from 'reactstrap'
-import {movie_list} from '../queries/queries'
+import {movie_list} from '../graphql/queries'
 function MovieList() {
   const {loading, error, data} = useQuery(movie_list)
-  console.log(data);
   if(loading) {
     return <p>Loading...</p>
   } else if (error) {
