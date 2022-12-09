@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, CardBody, CardHeader, Form, FormGroup } from "reactstrap";
 import { useQuery, useMutation } from '@apollo/client'
-import {director_list} from '../graphql/queries'
+import {movie_list, director_list} from '../graphql/queries'
 import {add_movie, add_director} from '../graphql/mutations'
 import { useForm } from 'react-hook-form';
 
@@ -21,7 +21,12 @@ function SideNav() {
   } = useForm()
 
   const [addDirector] = useMutation(add_director)
-  const [addMovie] = useMutation(add_movie)
+  const [addMovie] = useMutation(add_movie,
+    {
+      refetchQueries: [{query: movie_list}],
+      awaitRefetchQueries: true,
+    }
+  )
 
   const onAddDirector = (data) => {
     console.log(data)
