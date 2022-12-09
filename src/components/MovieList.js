@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import {Card, CardBody, Table} from 'reactstrap'
 import {movie_list} from '../queries/queries'
 function MovieList() {
